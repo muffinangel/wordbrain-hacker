@@ -187,21 +187,22 @@ def remove_from_board(board, list_of_indexes, verbose = False):
 	
 	return board
 
+#prepare dictionaries
+filelist = []
+for i in range(3, 13):
+	filelist.append(str(i) + ".txt")
+words_dictionaries = [[], [], []]
+words_dictionaries.extend(upload_all(filelist))
+words_dictionaries = tuple(words_dictionaries)
+
 
 if __name__ == '__main__':
-
-	#prepare dictionaries
-	filelist = []
-	for i in range(3, 13):
-		filelist.append(str(i) + ".txt")
-	words_dictionaries = [[], [], []]
-	words_dictionaries.extend(upload_all(filelist))
-	words_dictionaries = tuple(words_dictionaries)
 
 	board = [	['b', 'a', 's'],
 				['ó', 's', 'z'],
 				['l', 'a', 'n']
 		]
+
 	solutions = []
 	solve_board(board, [3, 6], solutions)
 	for s in solutions:
